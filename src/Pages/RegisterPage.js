@@ -3,6 +3,7 @@ import { Redirect } from "react-router-dom";
 
 import { UserContext } from "../UserContext";
 import { axios } from "../axios";
+import PasswordInputFormControls from "../components/PasswordInputFormControls"
 
 const RegisterPage = () => {
   //useState returns an array, we destructure it into a variable and function
@@ -14,19 +15,11 @@ const RegisterPage = () => {
 
   const [registered, setRegistered] = useState(false);
   const [invalidCredentials, setInvalidCredentials] = useState();
-  const [passwordMatch, setPasswordMatch] = useState(true);
 
   const { user, setUser } = useContext(UserContext);
 
   const makePostRequest = (e) => {
 
-    console.log(password);
-    console.log(password2);
-
-
-    if (password != password2) {
-      setPasswordMatch(false);
-    } else {
       axios
         .post("Users/signup", {
           Username: userName,
@@ -46,7 +39,7 @@ const RegisterPage = () => {
             console.log(error);
           }
         );
-    }
+    
   };
 
   const checkFields = () => {
@@ -79,33 +72,6 @@ const RegisterPage = () => {
       />
     </div>
   );
-  let passwordElements = (
-    <div>
-      <span>
-        <b>Password</b>
-      </span>
-      <input
-        type="password"
-        id="inputPassword"
-        className="form-control"
-        placeholder="Password"
-        onChange={(e) => setPassword(e.target.value)}
-        required
-      />
-
-      <span>
-        <b>Re-Enter Password</b>
-      </span>
-      <input
-        type="password"
-        id="inputPassword"
-        className="form-control"
-        placeholder="Password"
-        onChange={(e) => setPassword2(e.target.value)}
-        required
-      />
-    </div>
-  );
 
   let userTagElement = (
     <div>
@@ -128,14 +94,6 @@ const RegisterPage = () => {
     </button>
   );
 
-let passwordMatchElement = ''
-
-  if(!passwordMatch)
-  {
-      passwordMatchElement = 
-      <p className="warning-text">Passwords are not a match</p>
-  }
-  else passwordMatchElement = '';
 
   let invalidCredentialsElement = ''
   if(invalidCredentials){
@@ -145,12 +103,18 @@ let passwordMatchElement = ''
 
 let draw = '';
 
+
+const handlePasswordChangeValue = e => {
+  setPassword(e.target.value);
+  console.log("handling password");
+
+} 
+const handlePassword2ChangeValue = e =>  setPassword2(e.target.value);
 if(registered == false)
 {
 draw = (<div><h1 className="h3 mb-3 fw-normal">Please Register</h1>
 {usernameEmailElements}
-{passwordElements}
-{passwordMatchElement}
+<PasswordInputFormControls passwordChangeValue={handlePasswordChangeValue} password2ChangeValue={handlePassword2ChangeValue}/>
 {userTagElement}
 {loginButton}</div>);
 }

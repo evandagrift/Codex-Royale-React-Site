@@ -8,19 +8,30 @@ class PasswordInputFormControls extends Component{
         passwordB : ''
     };
   } 
+  
 
   render () {
+
+    // let passwordMatchElement = ''
+
+    // if(!passwordMatch)
+    // {
+    //     passwordMatchElement = 
+    //     <p className="warning-text">Passwords are not a match</p>
+    // }
+    // else passwordMatchElement = '';
+
 
     let passwordElements = (
         <div className="card p-2">
           <label><b>Password</b>
           <input type="password" id="inputPassword" className="form-control" placeholder="Password"
-            onChange={(e) => this.setState({passwordA : e.target.value})} required />
+            onChange={this.props.passwordChangeValue} required />
           </label>
     
           <label><b>Re-Enter Password</b>
           <input type="password" id="inputPassword" className="form-control" placeholder="Password"
-            onChange={(e) => this.setState({passwordB : e.target.value})} required />
+            onChange={this.props.password2ChangeValue} required />
           </label>
         </div>
       );
