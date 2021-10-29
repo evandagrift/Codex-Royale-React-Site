@@ -24,20 +24,23 @@ export function ConvertTimer(dateTime)
 {
   if(dateTime.length > 0){
 
-    var offset = new Date().getTimezoneOffset();
-    
   //2021 07 17 T 06 42 25
   let year = dateTime.substring(0,4);
   let month = dateTime.substring(4,6);
   let day = dateTime.substring(6,8);  
-  let hours = dateTime.substring(10,11);
+  let hours = dateTime.substring(9,11);
   let minutes = dateTime.substring(11,13);
   let seconds = dateTime.substring(14,15);
-  
-var convertedDate = new Date(Date(year, month-1, day, hours, minutes, seconds,0) +"UTC");
+  //- (offset/60)
 
-convertedDate.setMinutes(convertedDate.getMinutes() - offset);
-   return convertedDate;
+var convertedDate = new Date(year, month-1, day, hours, minutes, seconds,0);
+
+let returnString = convertedDate.toDateString();
+
+let timeString = convertedDate.toTimeString().substring(0,8) + " UTC";
+
+returnString = returnString + ", " + timeString;
+   return returnString;
   }
   else return null
 }

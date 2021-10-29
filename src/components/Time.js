@@ -12,7 +12,8 @@ class Time extends Component{
     let draw = '';
     if(time)
     {
-        draw = ConvertTimer(time);
+      let convertedDate = ConvertTimer(time);
+        draw = (convertedDate);
 
     }
     

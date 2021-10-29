@@ -1,89 +1,45 @@
-import React, { useState, useContext } from "react";
-import { Redirect, useParams } from 'react-router-dom';
+import React, { useState, useContext, useEffect } from "react";
+import { Redirect, useParams } from "react-router-dom";
 
 import { UserContext } from "../UserContext";
 import { axios } from "../axios";
-    
+
 import Battle from "../components/Battle";
 import Player from "../components/Player";
 import ChestCollection from "../components/ChestCollection";
 import BattleCollection from "../components/BattleCollection";
 import { FormatTag } from "../Utilities/scripts";
 
-
 const PlayerPage = () => {
+  const { playerTag } = useParams();
+  const { user, setUser } = useContext(UserContext);
 
-    const { user, setUser } = useContext(UserContext);
-    
-    const [player, setPlayer] = useState([]);
-    const [deck, setDeck] = useState([]);
-    const { playerTag } = useParams();
-    //const configOLD = { headers: { Authorization: `bearer ${user['token']}`}};
+  const [tag, setTag] = useState('');
+  const [redirect, setRedirect] = useState(false);
 
-    const config = { headers: { }};
+  //same as componentDidMount
+  useEffect( () => {
+    if(playerTag != undefined) { setTag(playerTag) }
+    else if(user && user.tag != "") { setTag(user.tag) }
+    else setRedirect(true);
+  }, [] );
 
-    async function getCard(id)
-    {
-        const response = axios.get("cards/"+id,config);
-        return response.data;
-    }
-    async function getPlayer()
-    {
-        let tag ='';
-        let formattedTag = '';
-        if((!playerTag) && (user)) { tag = FormatTag(user.tag); }
-        else if(playerTag) {tag = FormatTag(playerTag); }
+let chestsCollection = '';
+let playerData = '';
+let playerBattles = '';
 
-        if(tag)
+if(tag) 
 {
-        try{
-        const response = await axios.get("players/full/"+tag,config);
-        setPlayer(response.data);
-    }
-    catch{}
-    }
-    }
-
-    let getBattlesButton = (<button onClick={getPlayer}>playerpage</button>);
-    let draw = '';
-
-    let drawChests = '';
-    let drawPlayer = '';
-    let drawBattles = '';
-if(player != null)
-{
-    if(player["Name"])
-    {
-        drawPlayer = (<div><Player player={player}/></div>);
-    if(player["Chests"])
-    {
-        drawChests = (<div><div className="container d-inline-block text-center">
-        <ChestCollection chestCollection={player.Chests}/></div></div>);
-    }
-    console.log(player);
-    if(player["Battles"]) { 
-    drawBattles = (<div>
-        <h1>Recent Battles</h1>
-          <BattleCollection battleCollection={player.Battles} /></div>)}
-          
-          draw = (<div>
-            {drawChests}
-            {drawPlayer}
-            {drawBattles}
-        </div>);
-
-    }
-    else getPlayer();
+  chestsCollection = <ChestCollection playerTag={tag} />;
+  playerData = <Player playerTag={tag} />;
+  playerBattles = <BattleCollection playerTag={tag} />;
 }
-else 
-draw = (<Redirect to="/"/>);
-        
-    return (<div>
-        {draw}
-    </div>
-    );
-
-};
-
+if(!redirect)
+{
+  return <div>{chestsCollection}{playerData}{playerBattles}</div>;
+}
+else {return <Redirect to="/" />}
+  
+}
 
 export default PlayerPage;

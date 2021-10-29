@@ -14,9 +14,9 @@ class ClanPlayerCollection extends Component{
     {
       draw = clanPlayerCollection.map((c)=> <ClanPlayer key={"$player-list-+"+c.Tag} clanPlayer={c}/>)
     }
-    return (
-      <div key="$player-collection"className="container"><div className="card algin-center container row d-inline-block m-1 p-1">
-      <div className="row text-center d-inline-flex">
+    return (<div>
+      <div key="$player-collection" className="container card algin-center">
+      <div className="card-body text-center d-inline-block">
           <div className="col-2 clan-list-item"><b>Name</b></div>
           <div className="col-2 clan-list-item"><b>Tag</b></div>
         <div className="col-1 clan-list-item"><b>Level</b></div>
@@ -25,8 +25,8 @@ class ClanPlayerCollection extends Component{
           <div className="col-2 clan-list-item"><b>Last Seen</b></div>
           <div className="col-1 clan-list-item"><b>Donated</b></div>
           <div className="col-1 clan-list-item"><b>Donations Recieved</b></div>
-          </div></div>
-          {draw}</div>
+          </div>
+          {draw}</div></div>
     );
   }
 

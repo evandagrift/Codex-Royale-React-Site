@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { ConvertTimer } from "../Utilities/scripts";
+import { Link } from 'react-router-dom';
+import { ConvertTimer, FormatTag } from "../Utilities/scripts";
 
 class ClanPlayer extends Component{
   constructor(props){
@@ -15,8 +16,10 @@ class ClanPlayer extends Component{
     if(clanPlayer)
     {
         draw = (
-          <div className="card text-center container row d-inline-block m-1 p-1">
-          <div className="row text-center d-inline-flex">
+          <Link className="player-link"to={"/player/" + FormatTag(clanPlayer.Tag)}>
+          <div className="card card-body text-center container mt-1 mb-1 row d-inline-block">
+
+          <div className="row text-center d-inline-block">
           <div className="col-2 clan-list-item"><b>{clanPlayer.Name}</b></div>
           <div className="col-2 clan-list-item"><b>{clanPlayer.Tag}</b></div>
         <div className="col-1 clan-list-item"><b>{clanPlayer.ExpLevel}</b></div>
@@ -26,6 +29,7 @@ class ClanPlayer extends Component{
           <div className="col-1 clan-list-item"><b>{clanPlayer.Donations}</b></div>
           <div className="col-1 clan-list-item"><b>{clanPlayer.DonationsReceived}</b></div>
           </div></div>
+          </Link>
         );
     }
     

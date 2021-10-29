@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Deck from "./Deck";
 import Time from "./Time";
 
-class Card extends Component {
+class Battle extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -36,7 +36,7 @@ class Card extends Component {
               </div>
 
             <div className="col-2 d-inline-block">
-              <h1>VS</h1><Time time={battle.BattleTime}/>
+              <h1>VS</h1><Time  time={battle.BattleTime}/>
             </div>
 
               <div className="col-5 text-center d-inline-block">
@@ -59,4 +59,4 @@ class Card extends Component {
     return <div className="text-center">{draw}</div>;
   }
 }
-export default Card;
+export default Battle;

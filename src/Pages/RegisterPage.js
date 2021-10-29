@@ -92,6 +92,11 @@ const RegisterPage = () => {
     <button className="w-100 btn btn-lg btn-primary m-1" onClick={makePostRequest}>
       Register
     </button>
+  );  
+  let resendVerificationLink = (
+    <button className="w-60 btn btn-sm btn-primary m-1" onClick={makePostRequest}>
+     Resend Verification Link
+    </button>
   );
 
 
@@ -104,12 +109,9 @@ const RegisterPage = () => {
 let draw = '';
 
 
-const handlePasswordChangeValue = e => {
-  setPassword(e.target.value);
-  console.log("handling password");
-
-} 
+const handlePasswordChangeValue = e => setPassword(e.target.value);
 const handlePassword2ChangeValue = e =>  setPassword2(e.target.value);
+
 if(registered == false)
 {
 draw = (<div><h1 className="h3 mb-3 fw-normal">Please Register</h1>
@@ -120,6 +122,7 @@ draw = (<div><h1 className="h3 mb-3 fw-normal">Please Register</h1>
 }
 else draw = (<div>
   <p>Check your email for your verifcation link</p>
+<div>{resendVerificationLink}</div>
 </div>);
 
   return (

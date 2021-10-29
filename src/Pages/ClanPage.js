@@ -1,5 +1,5 @@
-import React, { useState, useContext } from "react";
-import { Redirect } from 'react-router-dom';
+import React, { useState, useContext, useEffect } from "react";
+import { Redirect, useParams } from "react-router-dom";
 
 import { UserContext } from "../UserContext";
 import Clan from "../components/Clan";
@@ -8,36 +8,32 @@ import { GetClanAsync } from "../Utilities/scripts";
 const ClanPage = () => {
 
     const { user, setUser } = useContext(UserContext);
+    const [tag, setTag] = useState('');
+    const [redirect, setRedirect] = useState(false);
+    const {clanTag} = useParams();
+
+  //same as componentDidMount
+  useEffect( () => {
+    if(clanTag != undefined) { setTag(clanTag) }
+    else if(user && user.clanTag != "") { setTag(user.clanTag) }
+    else setRedirect(true);
+  }, [] );
+
+
+
+    let draw =(<h1>Loading...</h1>);
+
+
+
+    if(tag) draw = <div className="container"><Clan clanTag={tag} /></div>
     
-    const [clan, setClan] = useState([]);
 
-    async function getClan()
-    {
-        const modifiedTag = "%23" + user.clanTag.substring(1);
-        const returnClan = await GetClanAsync(modifiedTag);
-       console.log(returnClan);
-        setClan(returnClan);
-
-    }
-
-    let getBattlesButton = (<button onClick={getClan}>click</button>);
-    let draw ='';
-    if(clan["Name"])
-    {
-        draw = <div className="container d-inline-block text-center"><Clan clan={clan} /></div>
-    }
-    else
-    draw=(getBattlesButton);
-
-
-        
+    
     return (
         <div>
             {draw}
         </div>
     );
-
 };
-
 
 export default ClanPage;

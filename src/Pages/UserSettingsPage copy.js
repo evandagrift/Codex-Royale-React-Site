@@ -32,7 +32,6 @@ const UserSettingsPage = () => {
         Role: role
       },config)
       .then((response) => {
-        console.log("Update: " + response);
       }, (error) => {
         console.log(error);
       });

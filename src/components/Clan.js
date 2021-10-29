@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import Card from "../components/Card";
 import Deck from "../components/Deck";
+import { GetClanAsync } from "../Utilities/axios-functions";
 import ClanPlayer from "./ClanPlayer";
 import ClanPlayerCollection from "./ClanPlayerCollection";
 import Time from "./Time";
@@ -9,37 +10,59 @@ import Time from "./Time";
 class Clan extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      clan:[]
+    };
+  }
+
+  async componentDidMount()
+  {
+    const { clanTag } = this.props;
+    
+    if(clanTag)
+    {
+      
+      const clan = await GetClanAsync(clanTag);
+      //console.log(clan);
+
+      if(clan)
+      {
+        this.setState({clan:clan});
+      }
+
+    }
+     
+
   }
 
   render() {
-    const { clan } = this.props;
     let clanDraw = '';
     let membersDraw = '';
     let membersHeader = '';
 
 
-    clanDraw = (
-      <div className="player card">
-        <div className="card-body text-center">
-          <div className="row d-inline-flex text-center">
-                <h1 className="d-inline">{clan.Name}</h1>
+    if(this.state.clan && this.state.clan.Name)
+    {
+      clanDraw = (
+          <div className="container">
+            <div className="row">
+                <h1>{this.state.clan.Name}</h1>
 
-                <h6 className="d-inline">
+                <h6>
                   <b>Tag:</b>
-                  {clan.Tag}
+                  {this.state.clan.Tag}
                 </h6>
-                <p className="d-inline">
+                <p>
                   <b>Members:</b>
-                  {clan.Members}/50
+                  {this.state.clan.Members}/50
                 </p>
-                <p className="d-inline">
-                  <b>{clan.Description}</b>
+                <p>
+                  <b>{this.state.clan.Description}</b>
                 </p>
 
                 <p>
                   <b>Required Trophies:</b>
-                  {clan.RequiredTrophies}
+                  {this.state.clan.RequiredTrophies}
                 </p>
 
 
@@ -47,51 +70,55 @@ class Clan extends Component {
 
                 <p>
                     <b>Donations Per Week:</b>
-                    {clan.DonationsPerWeek}
+                    {this.state.clan.DonationsPerWeek}
                   </p>
                 <p>
                       <b>Clan War Trophies:</b>
-                      {clan.ClanWarTrophies}
+                      {this.state.clan.ClanWarTrophies}
                     </p>
                     <p>
                       <b>Clan Chest Level:</b>
-                      {clan.ClanChestLevel}
+                      {this.state.clan.ClanChestLevel}
                     </p>
                     <p>
                       <b>Clan Chest Status:</b>
-                      {clan.ClanChestStatus}
+                      {this.state.clan.ClanChestStatus}
                     </p>
             </div>
 
                   <div className="col">
                     <p>
                       <b>Type:</b>
-                      {clan.Type}
+                      {this.state.clan.Type}
                     </p>
                   <p>
                     <b>Location Code:</b>
-                    {clan.LocationCode}
+                    {this.state.clan.LocationCode}
                   </p>
 
                   <p>
                     <b>Badge Id:</b>
-                    {clan.BadgeId}
+                    {this.state.clan.BadgeId}
                   </p>
                   <p>
                     <b>Clan Score:</b>
-                    {clan.ClanScore}
+                    {this.state.clan.ClanScore}
                   </p>
                   </div>
-                </div>
-              </div>
-        </div>
+                </div></div>
     );
-if(clan.MemberList)
+    }
+    else return <h1>Loading Clan Data</h1>
+
+if(this.state.clan && this.state.clan.MemberList)
 {      
-  membersDraw = (<ClanPlayerCollection clanPlayerCollection={clan.MemberList}/>)
+  membersDraw = (<ClanPlayerCollection clanPlayerCollection={this.state.clan.MemberList}/>)
 }
 
-    return <div className="container text-center">{clanDraw}{membersDraw}</div>;
+    return <div>
+    <div className="container">
+        {clanDraw}{membersDraw}
+        </div></div>;
   }
 }
 export default Clan;

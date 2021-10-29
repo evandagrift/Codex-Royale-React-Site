@@ -8,7 +8,6 @@ import React, { useContext, useState, useMemo } from 'react';
 import { UserContext } from "./UserContext";
 import UserSettingsPage from './Pages/SettingsPage';
 import PlayerPage from './Pages/PlayerPage';
-import PlayerPagev2 from './Pages/c-p-page';
 import LoginPage from './Pages/LoginPage';
 import ClanPage from './Pages/ClanPage';
 import EmailVerificationPage from './Pages/EmailVerificationPage';
@@ -21,7 +20,6 @@ function App() {
    {
     setUser(JSON.parse(localStorage.getItem('user')));
    }
-
 
   return  <div className="App d-block"  >
     <UserContext.Provider value={{user, setUser}}>
@@ -41,6 +39,7 @@ function App() {
         <Route path="/usersettings"exact  component={UserSettingsPage}  />
         <Route path="/settings"exact  component={UserSettingsPage}  />
         <Route path="/clan" exact component={ClanPage}  />
+        <Route path="/clan/:clanTag"> <ClanPage /> </Route>
         <Route path="/player"exact  component={PlayerPage}/>
         <Route path="/player/:playerTag"><PlayerPage /></Route>
         <Route path="/register/authenticate/:verificationCode"><EmailVerificationPage /></Route>
@@ -55,7 +54,6 @@ function App() {
         </UserContext.Provider>
     </div>
     
-
 }
 
 export default App;

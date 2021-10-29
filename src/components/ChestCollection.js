@@ -1,22 +1,39 @@
-import React, { Component } from 'react';
+import { Alert } from 'bootstrap';
+import React, { Component, useEffect } from 'react';
 import Chest from './Chest';
+import { GetChestsAsync } from '../Utilities/axios-functions';
+import { FormatTag } from '../Utilities/scripts';
 
 class ChestCollection extends Component{
   constructor(props){
     super(props);
-    this.state = {};
+    this.state = {
+      chestCollection:[]
+    };
   } 
+
+  async componentDidMount()
+  {
+    const { playerTag } = this.props;
+      if(playerTag)
+      {
+        let chests = await GetChestsAsync(FormatTag(playerTag));
+        this.setState({chestCollection:chests});
+      }
+  }
+
+
+
   render () {
-          
-    const { chestCollection } = this.props;
     let draw = '';
-    if(chestCollection != null)
+    let header = ( <h2>Loading Upcoming Chests</h2> );
+    if(this.state.chestCollection && this.state.chestCollection.length > 0)
     {
-      draw = chestCollection.map((c)=> <Chest key={"$chest-+"+c.Index} chest={c}/>)
+      header = (<div><h2>Upcoming Chests</h2> <p>(you need x number of wins to gain the below chests)</p></div>);
+      draw = this.state.chestCollection.map((c)=> <Chest key={"$chest-+"+c.Index} chest={c}/>)
     }
-    return (<div >
-      <h1>Upcoming Chests</h1>
-      <p>(you need x number of wins to gain the below chests)</p>
+    return (<div  >
+      {header}
       <div key="$chest-collection"className="chest-collection">{draw}</div>
        </div>
     );
