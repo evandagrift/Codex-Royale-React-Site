@@ -10,6 +10,7 @@ import UserSettingsPage from './Pages/SettingsPage';
 import PlayerPage from './Pages/PlayerPage';
 import LoginPage from './Pages/LoginPage';
 import ClanPage from './Pages/ClanPage';
+import ContactPage from './Pages/ContactPage';
 import EmailVerificationPage from './Pages/EmailVerificationPage';
 import ForgotPasswordPage from './Pages/ForgotPasswordPage';
 
@@ -39,6 +40,7 @@ function App() {
         <Route path="/usersettings"exact  component={UserSettingsPage}  />
         <Route path="/settings"exact  component={UserSettingsPage}  />
         <Route path="/clan" exact component={ClanPage}  />
+        <Route path="/contact" exact component={ContactPage}  />
         <Route path="/clan/:clanTag"> <ClanPage /> </Route>
         <Route path="/player"exact  component={PlayerPage}/>
         <Route path="/player/:playerTag"><PlayerPage /></Route>
