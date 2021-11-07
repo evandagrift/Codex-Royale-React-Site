@@ -44,17 +44,17 @@
 }
 .chest{
   
-  max-width: 80px;
-  max-height: 80px;
+  width: 3vw;
+  height: 3vw;
   padding: 0px;
-  margin: 0px;  
+  margin: 0px;
   display: inline-block;
   text-align: center;
 }
 .game-card
 {
-  max-width: 60px;
-  max-height: 60px;
+  width: 4vw;
+  height: 4vw;
   padding: 0px;
   margin: 0px;  
   display: inline-block;

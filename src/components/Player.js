@@ -49,7 +49,8 @@ class Player extends Component {
 
           <p>
             <b>Last Seen:</b>
-            <Time time={this.state.player.LastSeen} />
+            {(this.state.player.Clan!=null)?<Time time={this.state.player.LastSeen} />:"Unkown"}
+            
           </p>
         </div>
 
@@ -97,37 +98,37 @@ class Player extends Component {
         <div className="col">
           <p>
             <b>Clan Name:</b>
-            {this.state.player.Clan.Name}
+            {(this.state.player.Clan!=null)? this.state.player.Clan.Name:"Not In A Clan"}
           </p>
 
           <p>
             <b>Clan Tag:</b>
-            {this.state.player.ClanTag}
+            {(this.state.player.Clan!=null)? this.state.player.ClanTag:"Not In A Clan"}
           </p>
           <p>
             <b>Role:</b>
-            {this.state.player.Role}
+            {(this.state.player.Clan!=null)?this.state.player.Role:"Not In A Clan"}
           </p>
           <p>
             <b>Recent Donations:</b>
-            {this.state.player.Donations}
+            {(this.state.player.Clan!=null)?this.state.player.Donations:"Not In A Clan"}
           </p>
           <p>
             <b>Recent Donations Recieved:</b>
-            {this.state.player.DonationsReceived}
+            {(this.state.player.Clan!=null)?this.state.player.DonationsReceived:"Not In A Clan"}
           </p>
           <p>
             <b>Total Donations:</b>
-            {this.state.player.TotalDonations}
+            {(this.state.player.Clan!=null)?this.state.player.TotalDonations:"Not In A Clan"}
           </p>
           <p>
             <b>Total Donations Recieved:</b>
-            {this.state.player.ClanCardsCollected}
+            {(this.state.player.Clan!=null)?this.state.player.ClanCardsCollected:"Not In A Clan"}
           </p>
 
           <p>
             <b>War Day Wins:</b>
-            {this.state.player.WarDayWins}
+            {(this.state.player.Clan!=null)?this.state.player.WarDayWins:"Not In A Clan"}
           </p>
         </div>
       </div>

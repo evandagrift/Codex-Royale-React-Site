@@ -24,7 +24,7 @@ class Battle extends Component {
         team2Result = "Winner";
       }
       draw = (
-        <div className="card container d-inline-block m-1 p-1">
+        <div className="card d-inline-block m-1 p-1">
           <div className="col-5 text-center d-inline-block">
                 <h1>{battle.Team1Name}</h1>
                   <h6>{team1Result}</h6>
