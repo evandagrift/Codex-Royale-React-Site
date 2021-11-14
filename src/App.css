@@ -44,19 +44,19 @@
 }
 .chest{
   
-  width: 3vw;
-  height: 3vw;
+  width: 4vw;
+  height: 4vw;
   padding: 0px;
-  margin: 0px;
+  margin: 1px;
   display: inline-block;
   text-align: center;
 }
 .game-card
 {
-  width: 4vw;
-  height: 4vw;
+  width: 3vw;
+  height: 3vw;
   padding: 0px;
-  margin: 0px;  
+  margin: 1px;  
   display: inline-block;
   
 }
