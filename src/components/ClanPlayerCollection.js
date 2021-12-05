@@ -19,6 +19,7 @@ class ClanPlayerCollection extends Component {
 
 
     return (
+      <div className="table-responsive">
         <table key="$player-collection" className="table table-hover">
           <thead>
             <tr>
@@ -37,6 +38,7 @@ class ClanPlayerCollection extends Component {
           </tbody>
 
         </table>
+        </div>
     );
   }
 }
