@@ -25,8 +25,10 @@ const ClanPage = () => {
 
 
 
-    if(tag) draw = <div className="container"><Clan clanTag={tag} /></div>
+    if(tag) draw = <Clan clanTag={tag} />;
     
+    
+    if(redirect == true) draw = (<Redirect to="/" />);
 
     
     return (

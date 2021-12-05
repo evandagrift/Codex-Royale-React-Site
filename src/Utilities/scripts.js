@@ -13,12 +13,16 @@ export function FormatTag(tag)
   {
     formattedTag = tag;
   }
-  else  
+  else if(tagFormat[0] == '#')
   {
     formattedTag = "%23"+tag.substring(1);
   }
+  else  
+  {
+    formattedTag = "%23" + tag;
+  }
 }
-return formattedTag;
+return formattedTag.toUpperCase();
 }
 export function ConvertTimer(dateTime)
 {

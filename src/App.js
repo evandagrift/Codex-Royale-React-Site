@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import MyNavbar from './components/MyNavbar.js';
+import MyNavbar from './components/Navbar.js';
 import RegisterPage from './Pages/RegisterPage';
 import HomePage from './Pages/HomePage';
 import {BrowserRouter, Route, Switch, useParams } from 'react-router-dom';
@@ -22,48 +22,35 @@ function App() {
     setUser(JSON.parse(localStorage.getItem('user')));
    }
 
-  return  <div className="App d-block"  >
+  return (
+    <div className="form-signin">
     <UserContext.Provider value={{user, setUser}}>
+      
     <BrowserRouter>
 
-      <div className="container" style={{ backgroundColor:'#d3d3d3'}}>
           <MyNavbar  />
+          
+          <Route path="/" exact component={HomePage}  />
 
-
-      <main className="form-signin">
-      
-      
-        <Route path="/" exact component={HomePage}  />
-
-        <Route path="/login" exact  component={LoginPage}  />
-        <Route path="/register" exact component={RegisterPage}  />
-        <Route path="/usersettings"exact  component={UserSettingsPage}  />
-        <Route path="/settings"exact  component={UserSettingsPage}  />
-        <Route path="/clan" exact component={ClanPage}  />
-        <Route path="/contact" exact component={ContactPage}  />
-        <Route path="/clan/:clanTag"> <ClanPage /> </Route>
-        <Route path="/player"exact  component={PlayerPage}/>
-        <Route path="/player/:playerTag"><PlayerPage /></Route>
-        <Route path="/register/authenticate/:verificationCode"><EmailVerificationPage /></Route>
-        <Route path="/forgotpassword/:passwordResetCode"exact  component={ForgotPasswordPage}/>
-        <Route path="/forgotpassword"exact  component={ForgotPasswordPage}/>
+          <Route path="/login" exact  component={LoginPage}  />
+          <Route path="/register" exact component={RegisterPage}  />
+          <Route path="/usersettings"exact  component={UserSettingsPage}  />
+          <Route path="/settings"exact  component={UserSettingsPage}  />
+          <Route path="/clan" exact component={ClanPage}  />
+          <Route path="/contact" exact component={ContactPage}  />
+          <Route path="/clan/:clanTag"> <ClanPage /> </Route>
+          <Route path="/player"exact  component={PlayerPage}/>
+          <Route path="/player/:playerTag"><PlayerPage /></Route>
+          <Route path="/register/authenticate/:verificationCode"><EmailVerificationPage /></Route>
+          <Route path="/forgotpassword/:passwordResetCode"exact  component={ForgotPasswordPage}/>
+          <Route path="/forgotpassword"exact  component={ForgotPasswordPage}/>
         
       
-      </main>
       
-      </div>
         </BrowserRouter>
-        </UserContext.Provider>
-    </div>
-    
+      </UserContext.Provider>
+      </div>
+      );
 }
 
 export default App;
-
-// <input type="email" id="inputEmail" className="form-control" placeholder="Email address" required="" autofocus/>
-/*
-  <Route path="/player/:playerTag"
-            render={
-              props=> <PlayerPage id={props.match.params.id} />
-            } />
-            */

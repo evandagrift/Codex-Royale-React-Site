@@ -2,7 +2,7 @@
   margin: auto;
   text-align: center;
   overflow-wrap: break-word;
-  width: max-content;
+  width: 80vw;
   background-color:'#d3d3d3';
 }
 .form-signin .checkbox {
