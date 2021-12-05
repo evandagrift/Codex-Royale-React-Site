@@ -23,11 +23,9 @@ function App() {
    }
 
   return (
-    <div className="form-signin">
+    <div className="form-signin container">
     <UserContext.Provider value={{user, setUser}}>
-      
     <BrowserRouter>
-
           <MyNavbar  />
           
           <Route path="/" exact component={HomePage}  />
@@ -44,9 +42,6 @@ function App() {
           <Route path="/register/authenticate/:verificationCode"><EmailVerificationPage /></Route>
           <Route path="/forgotpassword/:passwordResetCode"exact  component={ForgotPasswordPage}/>
           <Route path="/forgotpassword"exact  component={ForgotPasswordPage}/>
-        
-      
-      
         </BrowserRouter>
       </UserContext.Provider>
       </div>

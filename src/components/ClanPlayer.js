@@ -33,10 +33,10 @@ class ClanPlayer extends Component{
       <td>{clanPlayer.Tag}</td>
       <td>{clanPlayer.ExpLevel}</td>
       <td>{clanPlayer.Trophies}</td>
-      <td>{clanPlayer.Trophies}</td>
-      <td>{clanPlayer.Trophies}</td>
-      <td>{clanPlayer.Trophies}</td>
-      <td>{clanPlayer.Trophies}</td>  
+      <td>{clanPlayer.Role}</td>
+      <td>{ConvertTimer(clanPlayer.LastSeen)}</td>
+      <td>{clanPlayer.Donations}</td>
+      <td>{clanPlayer.DonationsReceived}</td>  
       </tr>);
     }
     else return (<></>);
@@ -44,13 +44,4 @@ class ClanPlayer extends Component{
 
 }
 
-export default ClanPlayer;   {/* <div className="row text-center d-inline-block">
-<div className="col-2 clan-list-item"><b>{clanPlayer.Name}</b></div>
-<div className="col-2 clan-list-item"><b>{clanPlayer.Tag}</b></div>
-<div className="col-1 clan-list-item"><b>{clanPlayer.ExpLevel}</b></div>
-<div className="col-1 clan-list-item"><b>{clanPlayer.Trophies}</b></div>
-<div className="col-2 clan-list-item"><b>{clanPlayer.Role}</b></div>
-<div className="col-2 clan-list-item"><b>{ConvertTimer(clanPlayer.LastSeen)}</b></div>
-<div className="col-1 clan-list-item"><b>{clanPlayer.Donations}</b></div>
-<div className="col-1 clan-list-item"><b>{clanPlayer.DonationsReceived}</b></div>
-</div> */}
+export default ClanPlayer; 

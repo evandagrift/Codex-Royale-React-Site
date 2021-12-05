@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router";
 
 import Card from "../components/Card";
 import Deck from "../components/Deck";
@@ -25,6 +26,7 @@ class Clan extends Component {
       if (clan) {
         this.setState({ clan: clan });
       }
+      else <Redirect to="/"/>
     }
   }
 

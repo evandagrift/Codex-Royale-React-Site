@@ -24,18 +24,14 @@ const ClanPage = () => {
     let draw =(<h1>Loading...</h1>);
 
 
+    
+    if(redirect == true) return (<Redirect to="/" />);
 
-    if(tag) draw = <Clan clanTag={tag} />;
+    if(tag) return <Clan clanTag={tag} />;
+    else return draw;
     
-    
-    if(redirect == true) draw = (<Redirect to="/" />);
 
     
-    return (
-        <div>
-            {draw}
-        </div>
-    );
 };
 
 export default ClanPage;
