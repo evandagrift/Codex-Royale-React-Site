@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { ConvertTimer,FormatTag } from "../Utilities/scripts";
 import $ from "jquery"; 
-import  styles from "../cssModules/ClanPlayer.module.css";
+import styles from "../cssModules/ClanPlayer.module.css";
 import { Redirect } from 'react-router-dom';
 
 class ClanPlayer extends Component{

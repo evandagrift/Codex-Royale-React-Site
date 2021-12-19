@@ -3,6 +3,7 @@ import React, { Component, useEffect } from 'react';
 import Chest from './Chest';
 import { GetChestsAsync } from '../Utilities/axios-functions';
 import { FormatTag } from '../Utilities/scripts';
+import styles from '../cssModules/ChestCollection.module.css';
 
 class ChestCollection extends Component{
   constructor(props){

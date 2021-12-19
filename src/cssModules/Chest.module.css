@@ -1,0 +1,14 @@
+.chest{
+   
+  padding: 2px;
+  margin: 5px;
+  display: inline-flex;
+  text-align: center;
+  clear: both;
+
+}
+.chest img{
+    
+  width: 3vw;
+  height: 3vw;
+}
