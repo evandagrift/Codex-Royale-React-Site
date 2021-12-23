@@ -1,9 +1,7 @@
 .collection{
-      display: inline-flex;
-      margin-top: 2%;
-      margin-bottom: 1%;
       width: 100%;
+      
       margin-left: auto;
       margin-right: auto;
-      text-align: center;
+
 }

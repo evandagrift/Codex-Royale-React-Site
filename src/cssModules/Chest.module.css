@@ -1,14 +1,16 @@
 .chest{
-   
-  padding: 2px;
-  margin: 5px;
   display: inline-flex;
-  text-align: center;
-  clear: both;
-
+  object-fit: contain;
+}
+.chest strong{
+  margin-top: auto;
+  margin-bottom: 2%;
 }
 .chest img{
     
-  width: 3vw;
-  height: 3vw;
+  width: 3.5vw;
+  height: 3.5vw;
+    
+  min-width: 2vw;
+  min-height: 2vw;
 }
