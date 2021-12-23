@@ -11,14 +11,11 @@ class Chest extends Component{
   render () {
           
     const { chest } = this.props;
-    let draw = '';
+
     if(chest.Name)
     {
-      draw = (<div  className={styles.chest}><p>{chest.Index+1}</p><img  key={'$id'+chest.Index}  src={chest.Url}/></div>);
+      return (<div className={styles.chest}><strong>{chest.Index+1}</strong> <img  key={'$id'+chest.Index}  src={chest.Url}/></div>);
     }
-    return (
-       <div>{draw}</div>
-    );
   }
 
 }

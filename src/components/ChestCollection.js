@@ -33,9 +33,9 @@ class ChestCollection extends Component{
       header = (<div><h2>Upcoming Chests</h2> <p>(you need x number of wins to gain the below chests)</p></div>);
       draw = this.state.chestCollection.map((c)=> <Chest key={"$chest-+"+c.Index} chest={c}/>)
     }
-    return (<div  >
+    return (<div className={styles.collection} >
       {header}
-      <div key="$chest-collection"className="chest-collection">{draw}</div>
+      <div key="$chest-collection">{draw}</div>
        </div>
     );
   }
