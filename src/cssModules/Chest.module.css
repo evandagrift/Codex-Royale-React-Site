@@ -1,6 +1,7 @@
 .chest{
   display: inline-flex;
   object-fit: contain;
+  margin-right: 1%;
 }
 .chest strong{
   margin-top: auto;
@@ -8,9 +9,9 @@
 }
 .chest img{
     
-  width: 3.5vw;
-  height: 3.5vw;
+  width: 4vw;
+  height: 4vw;
     
-  min-width: 2vw;
-  min-height: 2vw;
+  min-width: 32px;
+  min-height: 32px;
 }
