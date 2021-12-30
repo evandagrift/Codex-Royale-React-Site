@@ -35,7 +35,7 @@ class ChestCollection extends Component{
     }
     return (<div className={styles.collection} >
       {header}
-      <div key="$chest-collection">{draw}</div>
+      <div className={styles.chestbox} key="$chest-collection">{draw}</div>
        </div>
     );
   }

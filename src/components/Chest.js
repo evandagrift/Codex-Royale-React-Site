@@ -14,7 +14,8 @@ class Chest extends Component{
 
     if(chest.Name)
     {
-      return (<div className={styles.chest}><strong>{chest.Index+1}</strong> <img  key={'$id'+chest.Index}  src={chest.Url}/></div>);
+      return (<div className={styles.chest}><strong>{chest.Index+1}</strong> <img  key={'$id'+chest.Index}  src={chest.Url}/>
+     <p>{chest.Name}</p></div>);
     }
   }
 

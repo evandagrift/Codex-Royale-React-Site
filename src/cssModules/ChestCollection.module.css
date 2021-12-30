@@ -1,10 +1,19 @@
 .collection{
       width: 100%;
+      position: relative;
+      padding: 0px;
+}
+
+.collection h2{
+      margin-bottom: 0px;
+}
+
+.collection p{
+      margin: 0px;
       
-      margin-left: auto;
-      margin-right: auto;
+}
 
-      margin-bottom: 1%;
-      margin-top: 1%;
-
+.chestbox{
+      margin: 0px;
+      padding: 0px;
 }
