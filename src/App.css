@@ -29,10 +29,6 @@
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
-.player
-{
-  text-align: left;
-}
 .deck
 {
   text-align: center;
@@ -41,15 +37,6 @@
   max-width: 240px;
   margin: 12px;
   padding: 0px;
-}
-.chest{
-  
-  width: 4vw;
-  height: 4vw;
-  padding: 0px;
-  margin: 1px;
-  display: inline-block;
-  text-align: center;
 }
 .game-card
 {
@@ -60,38 +47,10 @@
   display: inline-block;
   
 }
-.chest-collection
-{
-  display: inline-flex;
-  margin-top: 2%;
-  margin-bottom: 1%;
-}
 .home-search{
   text-align: center;
   flex-direction: row;
   width: auto;
   padding: 1%;
   background-color:#f5f5f5;
-}
-.clan-list-item
-{
-  text-align: justify;
-  display: inline-flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-}
-.player-link
-{
-  color: black;
-}
-.clan
-{
-align-items: left;
-justify-content: left;
-}
-
-.warning-text
-{
-  color:#ff0f0f;
-}
+} 

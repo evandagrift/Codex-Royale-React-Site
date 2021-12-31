@@ -25,10 +25,10 @@ export async function GetBattlesAsync() {
 }
 
 export async function GetClanAsync(tag) {
-  console.log("TAG:" + tag);
+  
   try {
     const searchTag = FormatTag(tag);
-    console.log("SearchTAG:" + searchTag);
+    
 
     const response = await axios.get("clans/" + searchTag);
     return response.data;

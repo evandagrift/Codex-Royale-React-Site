@@ -14,32 +14,30 @@ const PlayerPage = () => {
   const { playerTag } = useParams();
   const { user, setUser } = useContext(UserContext);
 
-  const [tag, setTag] = useState('');
-  const [redirect, setRedirect] = useState(false);
+  const [tag, setTag] = useState("");
 
   //same as componentDidMount
-  useEffect( () => {
-    if(playerTag != undefined) { setTag(playerTag) }
-    else if(user && user.tag != "") { setTag(user.tag) }
-    else setRedirect(true);
-  }, [] );
-
-let chestsCollection = '';
-let playerData = '';
-let playerBattles = '';
-
-if(tag) 
-{
-  chestsCollection = <ChestCollection playerTag={tag} />;
-  playerData = <Player playerTag={tag} />;
-  playerBattles = <BattleCollection playerTag={tag} />;
-}
-if(!redirect)
-{
-  return <div>{chestsCollection}{playerData}{playerBattles}</div>;
-}
-else {return <Redirect to="/" />}
+  useEffect(() => {
+    if (playerTag != undefined) {
+      setTag(playerTag);
+    } else if (user && user.tag != "") {
+      setTag(user.tag);
+    }
+  }, []);
   
-}
+  if(tag)
+  {
+    
+    return (
+      <div>
+        {<ChestCollection playerTag={tag} />}
+        {<Player playerTag={tag} />}
+        {<BattleCollection playerTag={tag} />}
+      </div>
+    );
+  }
+  else return(<h1>Loading...</h1>)
+
+};
 
 export default PlayerPage;
