@@ -13,6 +13,7 @@ class Clan extends Component {
     super(props);
     this.state = {
       clan: [],
+      redirect: false
     };
   }
 
@@ -21,12 +22,14 @@ class Clan extends Component {
 
     if (clanTag) {
       const clan = await GetClanAsync(clanTag);
-      //console.log(clan);
 
-      if (clan) {
+      if (clan != undefined) {
+
         this.setState({ clan: clan });
+      } 
+      else {
+        this.setState({redirect:true});
       }
-      else <Redirect to="/"/>
     }
   }
 
@@ -35,6 +38,10 @@ class Clan extends Component {
     let membersDraw = "";
     let membersHeader = "";
 
+    if (this.state.redirect)
+    {
+      return (<Redirect to="/" />);
+    }
     if (this.state.clan && this.state.clan.Name) {
       clanDraw = (
         <div className="row">

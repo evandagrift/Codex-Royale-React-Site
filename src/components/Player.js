@@ -3,13 +3,14 @@ import React, { Component } from "react";
 import Card from "../components/Card";
 import Deck from "../components/Deck";
 import Time from "./Time";
+import { Redirect } from "react-router-dom";
 import { getPlayerDataAsync } from "../Utilities/axios-functions";
 
 class Player extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      player: [],
+      player: []
     };
   }
 
@@ -19,16 +20,26 @@ class Player extends Component {
     //call player at given Tag
 
     try {
-      const responsePlayer = await getPlayerDataAsync(playerTag);
-      this.setState({ player: responsePlayer });
-      console.log(this.state.player.Name)
-    } catch {}
-  }
+      let responsePlayer = await getPlayerDataAsync(playerTag);
+
+      if(responsePlayer)
+      {
+
+        this.setState({ player: responsePlayer });
+
+      }
+      else this.setState({redirect:true});
+
+
+    } catch {this.setState({redirect:true})}
+  } 
 
   render() {
     let draw = "";
-    
-    if(this.state.player && this.state.player.Name)
+    if(this.state.redirect){
+      return <Redirect to="/" />;
+    }
+     if(this.state.player && this.state.player.Name)
     {
       draw = (
   <div className="player card">

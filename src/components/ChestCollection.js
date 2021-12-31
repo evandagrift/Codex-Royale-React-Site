@@ -18,8 +18,11 @@ class ChestCollection extends Component{
     const { playerTag } = this.props;
       if(playerTag)
       {
+        try {
         let chests = await GetChestsAsync(FormatTag(playerTag));
         this.setState({chestCollection:chests});
+        }
+        catch{}
       }
   }
 
