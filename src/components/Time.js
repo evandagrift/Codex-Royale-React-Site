@@ -19,7 +19,7 @@ class Time extends Component{
     
     
     return (
-       <div>{draw}</div>
+       <h4>{draw}</h4>
     );
   }
 

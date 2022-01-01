@@ -23,7 +23,7 @@ function App() {
    }
 
   return (
-    <div className="form-signin container">
+    <div className="form-signin">
     <UserContext.Provider value={{user, setUser}}>
     <BrowserRouter>
           <MyNavbar  />

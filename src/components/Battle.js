@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Deck from "./Deck";
 import Time from "./Time";
+import styles from "../cssModules/Battle.module.css";
 
 class Battle extends Component {
   constructor(props) {
@@ -9,7 +10,6 @@ class Battle extends Component {
   }
   render() {
     const { battle } = this.props;
-    let draw = "";
     
     //only rendering 1v1 Battles
     if (battle.Team1DeckBId == 0 && battle.Team1DeckAId != 0) {
@@ -23,43 +23,49 @@ class Battle extends Component {
         team1Result = "Loser";
         team2Result = "Winner";
       }
-
-
       
-      draw = (
-        <div className="card d-inline-block m-1 p-1">
-          <div className="col-5 text-center d-inline-block">
-                <h1>{battle.Team1Name}</h1>
-                  <h6>{team1Result}</h6>
+
+    return (
+      <div className={styles.battle}>
+        
+
+        <div id="left-panel" className={styles.leftPanel}>
+
+        <h1>{battle.Team1Name}</h1>
+        
+        
+        <p><b>{team1Result}</b></p>
+                  <p ><b>Crowns:</b>{battle.Team1Crowns}</p>
                   <p><b>Trophies:</b>{battle.Team1StartingTrophies}<i>({((team1Result == "Winner") ? "+"+battle.Team1TrophyChange : battle.Team1TrophyChange )})</i></p>
-                  <p className="text-center"><b>Crowns:</b>
-                  {battle.Team1Crowns}</p>
+                  
+                  
                   <Deck deck={battle.Team1DeckA} />
 
-              </div>
 
-            <div className="col-2 d-inline-block">
-              <h1>VS</h1><Time  time={battle.BattleTime}/>
-            </div>
+        </div>
 
-              <div className="col-5 text-center d-inline-block">
-                <h1>{battle.Team2Name}</h1>
-                  <h6>{team2Result}</h6>
+        <div id="center-panel" className={styles.centerPanel}>
+          <h1>VS</h1>
+          <Time  time={battle.BattleTime}/>
+        </div>
+
+        <div id="right-panel" className={styles.rightPanel}>
+
+        <h1>{battle.Team2Name}</h1>
+        <p ><b>{team2Result}</b></p>
+                  <p ><b>Crowns:</b> {battle.Team2Crowns}</p>
                   <p><b>Trophies:</b>{battle.Team2StartingTrophies}<i>({((team2Result == "Winner") ? "+"+battle.Team2TrophyChange : battle.Team2TrophyChange )})</i></p>
-                  <p className="text-center"><b>Crowns:</b> {battle.Team2Crowns}</p>
-                  <div>
-                  <div className="col-2"/>
-                  <Deck className="col-8"deck={battle.Team2DeckA} />
-                  <div className="col-2"/>
-                  </div>
+                  
+                
+                  <Deck deck={battle.Team2DeckA} />
 
-
-              </div>
-          </div>
-      );
+        </div>
+    </div>);
+      
+      
     }
+    else return null;
 
-    return <div className="text-center">{draw}</div>;
   }
 }
 export default Battle;
