@@ -5,7 +5,10 @@ import Time from "./Time";
 class Battle extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      team1Result:"",
+      team2Result:""
+    };
   }
   render() {
     const { battle } = this.props;
@@ -13,16 +16,16 @@ class Battle extends Component {
     
     //only rendering 1v1 Battles
     if (battle.Team1DeckBId == 0 && battle.Team1DeckAId != 0) {
-      let team1Result = "";
-      let team2Result = "";
 
       if (battle.Team1Crowns > battle.Team2Crowns) {
-        team1Result = "Winner";
-        team2Result = "Loser";
+        this.setState({team1Result:"Winner"});
+        this.setState({team2Result:"Loser"});
       } else {
-        team1Result = "Loser";
-        team2Result = "Winner";
+        this.setState({team1Result:"Loser"});
+        this.setState({team2Result:"Winner"});
       }
+
+      
       draw = (
         <div className="card d-inline-block m-1 p-1">
           <div className="col-5 text-center d-inline-block">
