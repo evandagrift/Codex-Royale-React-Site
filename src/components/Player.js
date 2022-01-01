@@ -42,7 +42,7 @@ class Player extends Component {
      if(this.state.player && this.state.player.Name)
     {
       draw = (
-  <div className="player card">
+  <div className="card">
     <div className="card-body text-center">
       <div className="row d-inline-flex text-center">
         <div className="col">

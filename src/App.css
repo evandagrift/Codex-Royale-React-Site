@@ -3,6 +3,7 @@
   text-align: center;
   overflow-wrap: break-word;
   width: 80vw;
+  min-width: 768px;
   background-color:'#d3d3d3';
 }
 .form-signin .checkbox {
@@ -28,24 +29,6 @@
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-}
-.deck
-{
-  text-align: center;
-  display: inline-block;
-  max-height: 120px;
-  max-width: 240px;
-  margin: 12px;
-  padding: 0px;
-}
-.game-card
-{
-  width: 3vw;
-  height: 3vw;
-  padding: 0px;
-  margin: 1px;  
-  display: inline-block;
-  
 }
 .home-search{
   text-align: center;
