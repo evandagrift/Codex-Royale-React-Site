@@ -36,7 +36,7 @@ const search = (e) => {
 //this.props.search("/" + this.state.searching + "/"+ this.state.searchInput);
 
 // if(this.state.searching == "player") {
-//     return (<div><Route push to="/Player/%2329PGJURQL" /></div>);
+//     return (<div>< push to="/Player/%2329PGJURQL" /></div>);
 //     //return (<div><Redirect exact to={"/Player/" + FormatTag(this.state.searchInput)} /></div>);
 // }
 // else if(this.state.searching == "clan"){
@@ -44,21 +44,20 @@ const search = (e) => {
 // }
 
 }
-let searchGroup = (<div>  <div className="form-group "> <form key="$playerForm" onSubmit={this.search}>
+let searchGroup = (<form key="$playerForm" onSubmit={this.search}>
     
 <input key="$search-input"  onChange={(e) => this.setState({searchInput:e.target.value})} className="form-control"  placeholder={this.state.searchPlaceholder} />
-<button key="$search-button" className="btn-primary" onClick={search}>Get {this.state.searching} Data</button>
-</form></div></div>  );
+<button key="$search-button" className="btn-dark mt-2 mb-3" onClick={search}>Get {this.state.searching} Data</button>
+</form>);
 
 if(!this.state.redirect)
 {
-    draw = ( <div><div className="home-search"> 
+    draw = (<div className="home-search"> 
       <h2>Search For Player or Clan</h2>
        
             <p><SearchBoxSelector playerSearchSelect={playerSearchSelect} clanSearchSelect={clanSearchSelect} />
             {searchGroup}
             </p>
-        </div>
         </div>);
 
 }

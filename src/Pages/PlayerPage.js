@@ -30,7 +30,7 @@ const PlayerPage = () => {
     
     return (
       <div>
-        {<ChestCollection playerTag={tag} />}
+      {<ChestCollection playerTag={tag} />}
         {<Player playerTag={tag} />}
         {<BattleCollection playerTag={tag} />}
       </div>

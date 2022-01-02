@@ -31,9 +31,11 @@
   border-top-right-radius: 0;
 }
 .home-search{
+  margin: 32px;
+  z-index: 1;
   text-align: center;
-  flex-direction: row;
   width: auto;
-  padding: 1%;
-  background-color:#f5f5f5;
+  font-weight: 700;
+  color:white;
+  -webkit-text-stroke: .25px black;
 } 

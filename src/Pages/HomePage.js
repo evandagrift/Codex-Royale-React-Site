@@ -3,6 +3,7 @@ import { UserContext } from "../UserContext";
 import BattleCollection from "../components/BattleCollection";
 import SearchBox from "../components/SearchBox";
 import ChestCollection from "../components/ChestCollection";
+import styles from "../cssModules/HomePage.module.css";
 
 const HomePage = () => {
   const { user, setUser } = useContext(UserContext);
@@ -14,15 +15,17 @@ const HomePage = () => {
 
   if(user) 
   { 
-    upcomingChests = <ChestCollection playerTag={user.tag} />; 
-  greeting = (<div><h1>Welcome {user.username}</h1></div>)
+    upcomingChests =(<div className={styles.chestCollection}> <ChestCollection playerTag={user.tag} /></div>); 
+  greeting = (<div className={styles.greeting}><h1>Welcome {user.username}</h1></div>)
   }
 
   return (
     <div>
+      <div className={styles.backgroundImage}>
       {greeting}
       {upcomingChests}
       {searchBox}
+      </div>
       {drawBattles}
     </div>
   );

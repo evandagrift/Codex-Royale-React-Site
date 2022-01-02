@@ -8,6 +8,7 @@
   margin-top: 0px;
   margin-bottom: 0px;
   max-width: 5%;
+  -webkit-text-stroke: .25px black;
 }
 .chest strong{
   margin: 0px;
@@ -16,7 +17,7 @@
 }
 .chest p{ 
   flex-basis: 50%;
-  font-weight: 650;
+  font-weight: 600;
   line-break: strict;
   font-size: 1vw;
 }

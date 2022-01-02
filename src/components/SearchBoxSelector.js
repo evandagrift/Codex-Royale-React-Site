@@ -6,7 +6,7 @@ class SearchBoxSelector extends Component {
     this.state = {
       searching: "player",
       playerClass: "nav-link active",
-      clanClass: "nav-link",
+      clanClass: "nav-link text-light ",
     };
   }
 
@@ -14,17 +14,17 @@ class SearchBoxSelector extends Component {
     const clickPlayer = () =>
     {
         this.props.playerSearchSelect();
-        this.setState({playerClass:"nav-link active", clanClass:"nav-link", searching:"player"});
+        this.setState({playerClass:"nav-link active", clanClass:"nav-link text-light", searching:"player"});
     }
     const clickClan = () =>
     {
         this.props.clanSearchSelect();
-        this.setState({playerClass:"nav-link", clanClass:"nav-link active", searching:"clan"});
+        this.setState({playerClass:"nav-link text-light", clanClass:"nav-link active", searching:"clan"});
     }
 
     let searchSelect = (
       <div>
-            <ul className="nav nav-tabs">
+            <ul className="nav nav-tabs border-0">
               <li className="nav-item">
                 <button key="$playerButton" className={this.state.playerClass} onClick={clickPlayer}>Player</button>
               </li>

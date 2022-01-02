@@ -4,15 +4,18 @@
 }
 
 .collection h2{
+      opacity: 1.0;
       margin-bottom: 0px;
 }
 
 .collection p{
+      opacity: 1.0;
       margin: 0px;
       
 }
 
 .chestbox{
       margin: 0px;
+      opacity: 1.0;
       padding: 0px;
 }

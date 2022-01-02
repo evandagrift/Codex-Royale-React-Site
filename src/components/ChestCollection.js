@@ -33,7 +33,7 @@ class ChestCollection extends Component{
     let header = ( <h2>Loading Upcoming Chests</h2> );
     if(this.state.chestCollection && this.state.chestCollection.length > 0)
     {
-      header = (<div><h2>Upcoming Chests</h2> <p>(you need x number of wins to gain the below chests)</p></div>);
+      header = (<div className=""><h2>Upcoming Chests</h2> <p>(you need x number of wins to gain the below chests)</p></div>);
       draw = this.state.chestCollection.map((c)=> <Chest key={"$chest-+"+c.Index} chest={c}/>)
     }
     return (<div className={styles.collection} >
