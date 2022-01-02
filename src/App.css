@@ -3,7 +3,7 @@
   text-align: center;
   overflow-wrap: break-word;
   background-color:'#d3d3d3';
-  min-width: 320px;
+  min-width: min-content;
   max-width: 80vw;
 }
 .form-signin .checkbox {
