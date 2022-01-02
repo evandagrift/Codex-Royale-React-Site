@@ -1,9 +1,11 @@
 .backgroundImage
 {
     background-image: url("../assets/KeyArt_Season_010.png");
-    background-size: 100% 100%;
+    background-size: 100% auto;
     background-position-x: center;
+    background-position-y: center;
     background-repeat:no-repeat;
+    min-height: 240px;
 }
 
 .greeting{

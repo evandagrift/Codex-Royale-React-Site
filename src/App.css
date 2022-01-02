@@ -32,6 +32,7 @@
 }
 .home-search{
   margin: 32px;
+  margin-top: 0px;
   z-index: 1;
   text-align: center;
   width: auto;

@@ -52,7 +52,7 @@ let searchGroup = (<form key="$playerForm" onSubmit={this.search}>
 
 if(!this.state.redirect)
 {
-    draw = (<div className="home-search"> 
+    draw = (<div className={"home-search"}> 
       <h2>Search For Player or Clan</h2>
        
             <p><SearchBoxSelector playerSearchSelect={playerSearchSelect} clanSearchSelect={clanSearchSelect} />
