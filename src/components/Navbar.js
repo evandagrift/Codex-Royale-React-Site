@@ -27,7 +27,7 @@ if(user != null)
 }
 else{
 navBar = (
-  <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+  <ul class="navbar-nav">
         <li className="nav-item">
           <Link className="nav-link" to="/login">login</Link>
         </li>

@@ -44,7 +44,7 @@ class Clan extends Component {
     }
     if (this.state.clan && this.state.clan.Name) {
       clanDraw = (
-        <div className="row">
+        <div className=" m-0">
           <h1>{this.state.clan.Name}</h1>
 
           <h6>
