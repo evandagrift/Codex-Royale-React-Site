@@ -1,9 +1,8 @@
 .form-signin {
   text-align: center;
   background-color:'#d3d3d3';
-  margin-left: 19%;
-  margin-right: 19%;
   max-width: max-content;
+  min-width: 62vw;
 }
 .form-signin .checkbox {
   font-weight: 400;
