@@ -1,3 +1,4 @@
+<img src="assets/ReadmeImg.png"  alt="Clash Banner" width='60%' height="auto" />
 # Codex Royale
 Codex Royale is a website where Clash Royale players can signup to see upcoming chests, advanced stats, and previous battle results
 
