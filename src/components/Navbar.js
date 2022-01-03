@@ -20,7 +20,7 @@ if(user != null)
           <Link className="nav-link" to="/player">Player</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="/usersettings">User Settings</Link>
+          <Link className="nav-link" to="/settings">User Settings</Link>
         </li>
       </ul>
   )

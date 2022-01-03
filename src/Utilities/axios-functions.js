@@ -58,7 +58,7 @@ export async function GetPlayerBattlesAsync(playerTag) {
 
 export async function GetChestsAsync(playerTag) {
   try {
-    const response = await axios.post(
+    const response = await axios.get(
       "players/chests/" + FormatTag(playerTag),
       {}
     );

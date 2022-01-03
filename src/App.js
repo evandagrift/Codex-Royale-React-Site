@@ -6,7 +6,7 @@ import HomePage from './Pages/HomePage';
 import {BrowserRouter, Route, Switch, useParams } from 'react-router-dom';
 import React, { useContext, useState, useMemo } from 'react';
 import { UserContext } from "./UserContext";
-import UserSettingsPage from './Pages/SettingsPage';
+import UserSettingsPage from './Pages/UserSettingsPage copy';
 import PlayerPage from './Pages/PlayerPage';
 import LoginPage from './Pages/LoginPage';
 import ClanPage from './Pages/ClanPage';
@@ -32,7 +32,6 @@ function App() {
 
           <Route path="/login" exact  component={LoginPage}  />
           <Route path="/register" exact component={RegisterPage}  />
-          <Route path="/usersettings"exact  component={UserSettingsPage}  />
           <Route path="/settings"exact  component={UserSettingsPage}  />
           <Route path="/clan" exact component={ClanPage}  />
           <Route path="/contact" exact component={ContactPage}  />
