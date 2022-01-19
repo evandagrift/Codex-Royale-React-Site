@@ -8,21 +8,24 @@ import Battle from "../components/Battle";
 import Player from "../components/Player";
 import ChestCollection from "../components/ChestCollection";
 import BattleCollection from "../components/BattleCollection";
-import { FormatTag } from "../Utilities/scripts";
+import Deck from "../components/Deck";
+import { GetDeckAsync } from "../Utilities/axios-functions";
 
 const PlayerPage = () => {
   const { playerTag } = useParams();
   const { user, setUser } = useContext(UserContext);
 
   const [tag, setTag] = useState("");
+  const [deck, setDeck] = useState("");
 
   //same as componentDidMount
-  useEffect(() => {
+  useEffect(async() => {
     if (playerTag != undefined) {
       setTag(playerTag);
     } else if (user && user.tag != "") {
       setTag(user.tag);
-    }
+    } 
+
   }, []);
   
   if(tag)

@@ -9,7 +9,7 @@ class Deck extends Component {
   }
 
   render() {
-    const { deck } = this.props
+    const { deck } = this.props;
     if(deck)
     {
  return (

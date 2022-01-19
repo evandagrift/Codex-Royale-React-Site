@@ -36,6 +36,8 @@ export async function GetClanAsync(tag) {
     return undefined;
   }
 }
+
+
 export async function GetPlayerBattlesAsync(playerTag) {
   if (playerTag) {
     try {
@@ -101,6 +103,21 @@ export async function getPlayerDataAsync(tag) {
     return undefined;
   }
 }
+
+
+
+
+export async function GetDeckAsync(tag) {
+  
+  try {
+
+    const response = await axios.get("decks/" +6224);
+    return response.data;
+  } catch {
+    return undefined;
+  }
+}
+
 
 /*
 

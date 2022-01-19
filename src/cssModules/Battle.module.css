@@ -10,11 +10,6 @@
     padding-right: 16px;
 }
 
-.leftPanel h1{
-font-size: 2.75vw;
-font-weight: 700;
-margin: 0px;
-}
 
 .centerPanel{
     flex-basis: 20%;
@@ -27,8 +22,4 @@ margin: 0px;
 .rightPanel{
     flex-basis: 40%;
     padding-left: 16px;
-}
-.rightPanel h1{
-font-size: 2.75vw;
-font-weight: 700;
 }

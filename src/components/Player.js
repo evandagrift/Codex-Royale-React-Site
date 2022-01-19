@@ -56,7 +56,7 @@ class Player extends Component {
           <p className="text-center m-0">
             <b>Current Deck</b>
           </p>
-          <Deck className="deck" deck={this.state.player.Deck} />
+          <Deck deck={this.state.player.Deck} />
 
           <p>
             <b>Last Seen:</b>
