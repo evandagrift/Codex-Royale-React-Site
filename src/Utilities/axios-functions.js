@@ -41,17 +41,10 @@ export async function GetClanAsync(tag) {
 export async function GetPlayerBattlesAsync(playerTag) {
   if (playerTag) {
     try {
-      let response = [];
-
-      while (response.length == 0) {
-        //times out to give the data feeder to catch up with the registered player
-        await new Promise((r) => setTimeout(r, 2000));
-        const responseBattles = await axios.get(
-          "battles/player/" + FormatTag(playerTag)
-        );
-
-        if (responseBattles.data != null) return responseBattles.data;
-      }
+      const searchTag = FormatTag(playerTag);
+      
+        const responseBattles = await axios.get("battles/player/" + searchTag);
+        return responseBattles.data
     } catch {
       return undefined;
     }
